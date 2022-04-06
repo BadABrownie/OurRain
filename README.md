@@ -1,8 +1,6 @@
-# Update: Data now publicly available!
+# Deep Learning Project
 
-We are very happy to announce that the memmap datasets are now available publicly at:
-https://console.cloud.google.com/storage/browser/aaai_release
-You require an ordinary Google account to access them.
+This is a clone of FrontierLabs/PyRain.
 
 The data comes in two different resolutions, `5.625` degrees, and `1.40625` degrees.
 To see what variables (and timeranges) are contained in each dataset, simply download the associated .dill file and read out as follows (python3):
