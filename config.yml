@@ -1,0 +1,3 @@
+data_paths: ["era5625_aaai/era5625_aaai.dill", "imerg5625/imerg_5625.dill", "simsat5625/simsat5625.dill"]
+norm_path: "analysis/precip_estimation/normalise/5625__79-01-01_07_00to17-12-31_11_00.json"
+log_path: "/data/forecast_benchmark/"
