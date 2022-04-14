@@ -105,7 +105,9 @@ At this point, the scope of our project was reduced to getting the code running 
 The final approach that was attempted, was to run the entire program on the TU Delft cluster. This was yet again a challenging task as neither of our group members attempting this approach had any experience with bash scripting or using a linux command line interface. However once this was overcome and the program was able to run on the cluster, we ran into errors that may be attributed to the structure of the code and the datasets involved. Upon deliberating with other groups and our TA, we concluded that it was currently infeasible to run the code as intended by the original authors, and neither group managed to successfully obtain any relevant outputs.
 
 ### *Bonus approach
-The large datasets were resampled by one of our project members and attempts were made to build our own trainer, similar to the ones used in the assignments of CS4240. However, this approach proved to be rather time consuming and required a greater level of understanding of the author’s code. Both which were beyond the scope of this assignment. The repository for this approach can be found here: github.com/Timelrod4021/MyRain
+The large datasets were resampled by one of our project members and attempts were made to build our own trainer, similar to the ones used in the assignments of CS4240. However, this approach proved to be rather time consuming and required a greater level of understanding of the author’s code. Both which were beyond the scope of this assignment. The repository for this approach can be found here:
+
+github.com/Timelrod4021/MyRain
 
 ## Conclusion
 
@@ -134,7 +136,9 @@ Additionally, I learnt how to run tasks on a computer cluster as part of the sec
 
 This Project gave me a rather exciting opportunity to use actual satellite data! The objective of this study resonates quite strongly with me as this would help developing countries plan in advance of extreme weather events. I have learnt that reproducing the results of a published paper can be rather tricky despite having access to the author’s code. As we couldn’t reproduce the baseline results, the opportunity to fine tune the model and see the implications of it was unavailable. However, I made a positive stride towards being able to execute a code despite the lack of intricate understanding of the code.
 
-I discovered a few handy python libraries, such a pytorch-lightning, and I believe that this assignment will serve me a foundation to build on my understanding of this library. Thanks to the Cloud credits and the access to the TUDelft Clusters, I have developed an understanding of using cloud platforms and Clusters to work with large datasets for the first time. I have made the appropriate changes to the author’s original run_benchmark file to keep it in line with the latest the pytorch-lightning version. This version of the codebase can be found here: github.com/BadABrownie/MyRain
+I discovered a few handy python libraries, such a pytorch-lightning, and I believe that this assignment will serve me a foundation to build on my understanding of this library. Thanks to the Cloud credits and the access to the TUDelft Clusters, I have developed an understanding of using cloud platforms and Clusters to work with large datasets for the first time. I have made the appropriate changes to the author’s original run_benchmark file to keep it in line with the latest the pytorch-lightning version. This version of the codebase can be found here: 
+
+github.com/BadABrownie/MyRain
 
 I have added the appropriate lines of code on both collab and cluster’s linux terminal to retrieve the mmap files from GCS buckets and through limited understanding of author’s was able to execute the code, though only managing to complete one training epoch before running into other issues.
 
