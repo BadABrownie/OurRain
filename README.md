@@ -37,7 +37,7 @@ The inputs X_1, ... X_t, cell outputs C_1, ... C_t, hidden states H_1, ... H_t, 
 
 The equations of ConvLSTM [1] are shown below, where * denotes the convolution operator and ∘ denotes the Hadamard product:
 
-![Equations1](https://github.com/BadABrownie/OurRain/blob/master/images/img1.png)
+![Equations1](https://github.com/BadABrownie/OurRain/blob/master/images/eq1.png)
 
 The drawback of FC-LSTM is the lack of no spatial information encoded with the usage of full connection in input-to-state and state-to-state transitions. The ConvLSTM overcomes this problem by predicating the future state of a certain cell in the grid with the data of its local neighbours, by taking advantage of convolution operator.
 
