@@ -33,14 +33,11 @@ The ConvLSTM [1] network is an extension of a full connected LSTM [2] (FC-LSTM) 
 
 The inputs X_1, ... X_t, cell outputs C_1, ... C_t, hidden states H_1, ... H_t, input gate i_t, forget gate f_t and output gate σ_t of ConvLSTM are 3D tensors whose dimensions are channels, and spatial dimensions (rows and columns). In order to facilitate the understanding of the input dimension, the spatial dimension can be regarded as the surface of the earth corresponding to a certain geographical range, that is, the space grid. The channels are understood as various climate data corresponding to the same geographical location. The climate data in the same space grid species are shared.
 
-![Input Dimension](https://github.com/BadABrownie/OurRain/blob/master/images/img1.png)
+![Image1](https://github.com/BadABrownie/OurRain/blob/master/images/img1.png)
 
 The equations of ConvLSTM [1] are shown below, where * denotes the convolution operator and ∘ denotes the Hadamard product:
 
-$i_t = \sigma(W_{xi}*X_t+W_{hi}*H_{t-1}+W_{ci}\circ C_{t-1}+b_i)$
-$f_t = \sigma(W_{xf}*X_t+W_{hf}*H_{t-1}+W_{cf}\circ C_{t-1}+b_f)$
-$C_t = f_t \circ C_{t-1}+i_t \circ \tanh(W_{xc}*X_t + W_{hc}*H_{t-1}+b_c)$
-$o_t = \sigma(W_{xo}*X_t+W_{ho}*H_{t-1}+W_{co}\circ C_t+b_o)$
+![Equations1](https://github.com/BadABrownie/OurRain/blob/master/images/img1.png)
 
 The drawback of FC-LSTM is the lack of no spatial information encoded with the usage of full connection in input-to-state and state-to-state transitions. The ConvLSTM overcomes this problem by predicating the future state of a certain cell in the grid with the data of its local neighbours, by taking advantage of convolution operator.
 
@@ -50,8 +47,8 @@ However, the convolution operation will shrink the width and height of the input
 
 The benchmark results of the paper are obtained by using the architecture of the MetNet model, ConvLSTMForecaster [4] and is composed as follows: a ConvLSTM model is used, consisting of two Conv2d layers and a ReLU layer, and structure the forecasting task based on MetNet’s [4] configurations. The inputs are a time series of standardized climate features, and the output is a precipitation forecast of one certain lead time.
 
-**IMG2**
-**IMG3**
+![Image2](https://github.com/BadABrownie/OurRain/blob/master/images/img2.png)
+![Image3](https://github.com/BadABrownie/OurRain/blob/master/images/img3.png)
 
 ### Model Training
 
@@ -61,7 +58,9 @@ We use the choosen features of dataset according to Appendix C of the RainBench 
 
 Moreover, the day, month and year corresponding to the input data and the lead time also needs to be concatenated into the input sequence. The date is embedded into three channels with the same width and height of input data. A forward pass through ConvLSTM makes a prediction for a single lead time. The model is informed about the desired lead time by concatenating this information with the descriptive input features. The lead times are sampled every 24 hours over a period of 120 hours. We use five layers of shape [w, h] to express a specific lead time. The layer corresponding to the leadtime is all filled with 1, and the other layers are all filled with 0 [4].
 
-**IMG4**
+![Image4](https://github.com/BadABrownie/OurRain/blob/master/images/img4.png)
+
+This image is an example for a lead time = 48h.
 
 According to the amount of input features above, the number of input channels of the model when using different input data datasets can be obtained
 
@@ -73,11 +72,11 @@ SimSat + ERA5: 3(clbt) + 5X3(time-varying) + 3(date) + 5(leadtime) + 5(constant)
 
 We use the mean latitude-weighted RMSE [5] as a loss function
 
-$$RMSE = \frac{1}{N_{forecasts}}\sum_i^{N_{forecasts}}\sqrt{\frac{1}{N_{lat}N_{lon}}\sum_j^{N_{lat}}\sum_k^{N_{lon}}L(j)(f_{i, j, k} - t_{i, j, k})^2}$$
+![Equation2](https://github.com/BadABrownie/OurRain/blob/master/images/eq2.png)
 
 where f is the model forecast and is the truth. L(j) is the latitude weighting factor for the latitude at the $j_{th}$ latitude index:
 
-$$L(j) = \frac{\cos(lat(j))}{\frac{1}{N_{lat}}\sum_j^{N_{lat}}\cos(lat(j))}$$
+![Equation3](https://github.com/BadABrownie/OurRain/blob/master/images/eq3.png)
 
 We use an Adam optimizer.
 
