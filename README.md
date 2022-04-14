@@ -6,7 +6,9 @@ This repository is a clone of Frontier Development Labs' PyRain, and is the code
 Authors:
 
 **Keval Sakhida** (4646916) k.sakhida@student.tudelft.nl
+
 **Datta Vemulapalli** (4447441) d.vemulapalli@student.tudelft.nl
+
 **Danning Zhao** (5459583) D.ZHAO-3@student.tudelft.nl
 
 ## Introduction
@@ -107,7 +109,7 @@ The final approach that was attempted, was to run the entire program on the TU D
 ### *Bonus approach
 The large datasets were resampled by one of our project members and attempts were made to build our own trainer, similar to the ones used in the assignments of CS4240. However, this approach proved to be rather time consuming and required a greater level of understanding of the author’s code. Both which were beyond the scope of this assignment. The repository for this approach can be found here:
 
-github.com/Timelrod4021/MyRain
+https://github.com/Timelrod4021/MyRain
 
 ## Conclusion
 
@@ -138,7 +140,7 @@ This Project gave me a rather exciting opportunity to use actual satellite data!
 
 I discovered a few handy python libraries, such a pytorch-lightning, and I believe that this assignment will serve me a foundation to build on my understanding of this library. Thanks to the Cloud credits and the access to the TUDelft Clusters, I have developed an understanding of using cloud platforms and Clusters to work with large datasets for the first time. I have made the appropriate changes to the author’s original run_benchmark file to keep it in line with the latest the pytorch-lightning version. This version of the codebase can be found here: 
 
-github.com/BadABrownie/MyRain
+https://github.com/BadABrownie/MyRain
 
 I have added the appropriate lines of code on both collab and cluster’s linux terminal to retrieve the mmap files from GCS buckets and through limited understanding of author’s was able to execute the code, though only managing to complete one training epoch before running into other issues.
 
