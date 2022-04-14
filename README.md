@@ -33,7 +33,7 @@ The ConvLSTM [1] network is an extension of a full connected LSTM [2] (FC-LSTM) 
 
 The inputs X_1, ... X_t, cell outputs C_1, ... C_t, hidden states H_1, ... H_t, input gate i_t, forget gate f_t and output gate σ_t of ConvLSTM are 3D tensors whose dimensions are channels, and spatial dimensions (rows and columns). In order to facilitate the understanding of the input dimension, the spatial dimension can be regarded as the surface of the earth corresponding to a certain geographical range, that is, the space grid. The channels are understood as various climate data corresponding to the same geographical location. The climate data in the same space grid species are shared.
 
-![Input Dimension](https://github.com/BadABrownie/BadABrownie.github.io/OurRain/master/images/img1.png)
+![Input Dimension](https://github.com/BadABrownie/BadABrownie.github.io/blob/master/images/img1.png)
 
 The equations of ConvLSTM [1] are shown below, where * denotes the convolution operator and ∘ denotes the Hadamard product:
 
