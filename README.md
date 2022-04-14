@@ -31,11 +31,11 @@ In order to make the experiment more efficient, the spatial resolution of the af
 ### The ConvLSTM Model
 The ConvLSTM [1] network is an extension of a full connected LSTM [2] (FC-LSTM) which has convolutional structures in both the input-to-state and state-to-state transitions. By using ConvLSTM, the authors are able to build a network model for the precipitation nowcasting problem.
 
-The inputs $X_1, ... X_t$, cell outputs $C_1, ... C_t$, hidden states $H_1, ... H_t$, input gate $i_t$, forget gate $f_t$ and output gate $\sigma_t$ of ConvLSTM are 3D tensors whose dimensions are channels, and spatial dimensions (rows and columns). In order to facilitate the understanding of the input dimension, the spatial dimension can be regarded as the surface of the earth corresponding to a certain geographical range, that is, the space grid. The channels are understood as various climate data corresponding to the same geographical location. The climate data in the same space grid species are shared.
+The inputs X_1, ... X_t, cell outputs C_1, ... C_t, hidden states H_1, ... H_t, input gate i_t, forget gate f_t and output gate σ_t of ConvLSTM are 3D tensors whose dimensions are channels, and spatial dimensions (rows and columns). In order to facilitate the understanding of the input dimension, the spatial dimension can be regarded as the surface of the earth corresponding to a certain geographical range, that is, the space grid. The channels are understood as various climate data corresponding to the same geographical location. The climate data in the same space grid species are shared.
 
 **IMG1**
 
-The equations of ConvLSTM [1] are shown below, where * denotes the convolution operator and $\circ$ denotes the Hadamard product:
+The equations of ConvLSTM [1] are shown below, where * denotes the convolution operator and ∘ denotes the Hadamard product:
 
 $i_t = \sigma(W_{xi}*X_t+W_{hi}*H_{t-1}+W_{ci}\circ C_{t-1}+b_i)$
 $f_t = \sigma(W_{xf}*X_t+W_{hf}*H_{t-1}+W_{cf}\circ C_{t-1}+b_f)$
@@ -44,7 +44,7 @@ $o_t = \sigma(W_{xo}*X_t+W_{ho}*H_{t-1}+W_{co}\circ C_t+b_o)$
 
 The drawback of FC-LSTM is the lack of no spatial information encoded with the usage of full connection in input-to-state and state-to-state transitions. The ConvLSTM overcomes this problem by predicating the future state of a certain cell in the grid with the data of its local neighbours, by taking advantage of convolution operator.
 
-However, the convolution operation will shrink the width and height of the inputs and the states. Padding is needed in order to ensure that the states have the same spatial dimensions as the inputs. Padding of hidden padding of the hidden states on the boundary can be viewed as using *the state of the outside world* for calculation [1]. In more detail, initialization of the states $H_0, C_0$ of the LSTM to zero means ignoring the past before the earliest time sequence of inputs. Similarly, zero padding assumes no prior knowledge about the climate data outside the grid.
+However, the convolution operation will shrink the width and height of the inputs and the states. Padding is needed in order to ensure that the states have the same spatial dimensions as the inputs. Padding of hidden padding of the hidden states on the boundary can be viewed as using *the state of the outside world* for calculation [1]. In more detail, initialization of the states H_0, C_0 of the LSTM to zero means ignoring the past before the earliest time sequence of inputs. Similarly, zero padding assumes no prior knowledge about the climate data outside the grid.
 
 ### Implementation of the ConvLSTMForecaster Model
 
